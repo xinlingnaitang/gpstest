@@ -1,85 +1,75 @@
-GPSTest [![Build Status](https://travis-ci.org/barbeau/gpstest.svg?branch=master)](https://travis-ci.org/barbeau/gpstest)
-=======
+# <img src="/icons/ic_launcher-playstore.png" width="50"/> GPSTest 
+[![Build Status](https://github.com/barbeau/gpstest/actions/workflows/android.yml/badge.svg)](https://github.com/barbeau/gpstest/actions/workflows/android.yml) 
+[![GitHub issues](https://img.shields.io/github/issues/barbeau/gpstest?color=red)](https://github.com/barbeau/gpstest/issues)
+[![Twitter Follow](https://img.shields.io/twitter/follow/sjbarbeau.svg?style=social&label=Follow)](https://twitter.com/sjbarbeau)
+[![GitHub](https://img.shields.io/github/license/barbeau/gpstest)](/LICENSE)
 
-Android GPS test program
+The #1 open-source global navigation satellite system (GNSS) testing app.
 
-Available on Google Play at https://play.google.com/store/apps/details?id=com.android.gpstest
+## Install
 
-For a Developer's Guide and more details, see https://github.com/barbeau/gpstest/wiki
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png" alt="Get it on Google Play" height="80">](https://play.google.com/store/apps/details?id=com.android.gpstest)
+[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/com.android.gpstest.osmdroid/)
 
-## Build Setup
+## Features
 
-### Prerequisites for both Android Studio and Gradle
+It supports dual-frequency¹ GNSS for:
 
-1. Download and install the [Android SDK](http://developer.android.com/sdk/index.html).  Make sure to install the Google APIs for your API level (e.g., 17), the Android SDK Build-tools version for your `buildToolsVersion` version, and the Android Support Repository and Google Repository.
-2. Set the "ANDROID_HOME" environmental variable to your Android SDK location.
-3. Set the "JAVA_HOME" environmental variables to point to your JDK folder (e.g., "C:\Program Files\Java\jdk1.6.0_27")
+* GPS (USA Navstar)
+* GLONASS (Russia)
+* QZSS (Japan)
+* BeiDou/COMPASS (China)
+* Galileo (European Union)
+* IRNSS/NavIC (India)
+* Various satellite-based augmentation systems (SBAS):
+    * Wide Area Augmentation System (WAAS) (USA)
+    * European Geostationary Navigation Overlay Service (EGNOS) (European Union)
+    * GPS-aided GEO augmented navigation (GAGAN) (India)
+    * Multi-functional Satellite Augmentation System (MSAS) (Japan)
+    * System for Differential Corrections and Monitoring (SDCM) (Russia)
+    * Satellite Navigation Augmentation System (SNAS) (China)
+    * Soluciόn de Aumentaciόn para Caribe, Centro y Sudamérica (SACCSA) (ICAO)
+    * Southern Positioning Augmentation Network (SouthPAN) (Australia / New Zealand)
+    
+¹*Dual-frequency GNSS requires device hardware support and Android 8.0 Oreo or higher. See [Dual-frequency GNSS on Android](https://medium.com/@sjbarbeau/dual-frequency-gnss-on-android-devices-152b8826e1c) for more details.*
 
-### Building in Android Studio
+</details>
 
-1. Download and install the latest version of [Android Studio](http://developer.android.com/sdk/installing/studio.html).
-2. In Android Studio, choose "Import Project" at the welcome screen.
-3. Browse to the location of the project, and double-click on the project directory.
-4. If prompted with options, check "Use auto-import", and select "Use default gradle wrapper (recommended)".  Click "Ok".
-5. Click the green play button (or 'Shift->F10') to run the project!
+## Screenshots
+<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" height="500"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" height="500"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" height="500">
 
-### Building from the command line using Gradle
+<details>
+  <summary>More screenshots</summary>
+  
+<img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/4.jpg" height="500"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" height="500"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/6.jpg" height="500"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" height="500"> <img src="/fastlane/metadata/android/en-US/images/phoneScreenshots/8.jpg" height="500">
+  
+</details>
 
-1. To build and push the app to the device, run `gradlew installDebug` from the command line at the root of the project
-2. To start the app, run `adb shell am start -n com.android.gpstest/.GpsTestActivity` (alternately, you can manually start the app)
+## Contributing
 
-### Release builds
+I welcome contributions to the project!  Please see the [Contributing Guide](.github/CONTRIBUTING.md) for details, including Code Style Guidelines and Template.
 
-To build a release build, you need to create a "gradle.properties" file that points to a "secure.properties" file, and a "secure.properties" file that points to your keystore and alias. The `gradlew assembleRelease` command will prompt for your keystore passphrase.
+- Don't know where to start?  Take a look at the issues marked with the [your-first-pr](https://github.com/barbeau/gpstest/labels/your-first-pr) label and comment to let me know if you're interested in working on it.
 
-The "gradle.properties" file is located in the `\GPSTest` directory and has the contents:
+- Beta testing: Get early access to new GPSTest versions, and help us squash bugs! See the [Testing Guide](BETA_TESTING.md) for details.
 
-```
-secure.properties=<full_path_to_secure_properties_file>
-```
+- Translating: Want to improve existing translations, or add a new translation?  Translate on [Transifex](https://app.transifex.com/sean-barbeau/gpstest-android/dashboard/) or see the [Translations](/TRANSLATIONS.md) documentation.
 
-The "secure.properties" file (in the location specified in gradle.properties) has the contents:
+## FAQ
 
-```
-key.store=<full_path_to_keystore_file>
-```
+Questions?  Check out the [FAQ](FAQ.md), the [Slack group](https://gpstest-android.herokuapp.com/), and [Google Group](https://groups.google.com/forum/#!forum/gpstest_android).
 
-```
-key.alias=<key_alias_name>
-```
+- Crowdsourcing GNSS data: Interested in better understanding the state of GNSS feature support on Android devices? See the article [*Crowdsourcing GNSS features of Android devices*](https://barbeau.medium.com/crowdsourcing-gnss-capabilities-of-android-devices-d4228645cf25).
 
-Note that the paths in these files always use the Unix path separator  `/`, even on Windows. If you use the Windows path separator `\` you will get the error `No value has been specified for property 'signingConfig.keyAlias'.`
+- Accuracy: Measuring your device GNSS accuracy? Check out the [Measuring Accuracy using GPSTest](ACCURACY.md) page, as well as the corresponding article [*Measuring GNSS accuracy on Android devices*](https://medium.com/@sjbarbeau/measuring-gnss-accuracy-on-android-devices-6824492a1389).
 
-### Contributing
+- Data Output and Logging: Want to know how to output GNSS data to the system log for further analysis?  Check out the [Data Output and Logging](LOGGING.md) page.
 
-We welcome contributions to the project!  Please see our [Contributing Guide](https://github.com/barbeau/gpstest/blob/master/CONTRIBUTING.md) for details, including Code Style Guidelines and Template.
+- Building the project: You can open and build this project using [Android Studio](https://developer.android.com/studio).  For more details, see the [Build documentation](BUILD.MD).
 
-## Troubleshooting
+## Trusted by industry experts
 
-### When importing to Android Studio, I get an error "You are using an old, unsupported version of Gradle..."
+Notable appearances of GPSTest:
 
-If you're using Android Studio v0.4.2 or lower, when importing, please be sure to select the "settings.gradle" file in the root, **NOT** the project directory.
-You will get the above error if you select the project directory / name of the project.
-
-### I get build errors for the Android Support libraries or Google APIs
-
-Open Android SDK Manager, and under the "Extras" category make sure you've installed both the "Android Support Repository" (in addition to the "Android Support library") as well as the
- "Google Repository".  Also, make sure you have the Google API installed for the API level that you're working with in the "/build.gradle" file,
- including the "Android SDK Build-tools" version (at the top of the "Tools" category in the Android SDK Manager) that
- matches the compileSdkVersion and buildToolsVersion numbers in /GPSTest/build.gradle.
-
-### I get the import gradle project error - “Cause: unexpected end of block data”
-
-Make sure you have the Google API installed for the API level that you're working with in the `/build.gradle` file,
- including the "Android SDK Build-tools" version (at the top of the "Tools" category in the Android SDK Manager) that
- matches the `compileSdkVersion` and `buildToolsVersion` numbers in `/GPSTest/build.gradle`.
-
-### Android Studio or Gradle can't find my Android SDK, or the API Levels that I have installed
-
-Make sure that you're consistently using the same Android SDK throughout Android Studio and your environmental variables.
-Android Studio comes bundled with an Android SDK, and can get confused if you're pointing to this SDK within Android Studio
-but have your environmental variables pointed elsewhere.  Click "File->Project Structure", and then under "Android SDK"
-make sure you "Android SDK Location" is the correct location of your Android SDK.
-
-Also, make sure you've set the "ANDROID_HOME" environmental variable to your Android SDK location and
-the "JAVA_HOME" environmental variables to point to your JDK folder.
+* Xiaomi - [*Xiaomi Redmi Note 9 Pro Max launch*](https://youtu.be/Y_5cfCZBOV4?t=3035), March 12, 2020.
+* European Union Global Navigation Satellite Systems Agency (GSA) - [*Test your Android device’s satellite navigation performance*](https://www.euspa.europa.eu/newsroom-events/news-archive/test-your-android-devices-satellite-navigation-performance), August 21, 2018.
